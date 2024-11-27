@@ -1,0 +1,4 @@
+run = "python App/main.py"
+
+[web]
+hosting = "public"

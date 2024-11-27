@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Links de YouTube</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Consulta de Links de YouTube</h1>
+    <form method="POST" action="/get_link">
+        <label for="variable_name">Introduce el nombre del video:</label><br>
+        <input type="text" id="variable_name" name="variable_name" required>
+        <button type="submit">Consultar</button>
+    </form>
+    <h3>Videos disponibles:</h3>
+    <ul>
+        {% for var in variables %}
+            <li>{{ var }}</li>
+        {% endfor %}
+    </ul>
+    {% if result %}
+        <h3>Resultado:</h3>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
